@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 df_titles = pd.read_csv("titles.csv")
 df_credits = pd.read_csv("credits.csv")
