@@ -74,11 +74,12 @@ def run_third_task(df_titles):
 
 def show_actors_good_movies(df_titles, df_credits):
     df_titles.sort_values('imdb_score', inplace=True, ascending=False)
-    good_movies = df_titles[:1000]
+    df_movies = df_titles[df_titles['type'].isin(['MOVIE'])]
+    good_movies = df_movies[:1000]
     actors_good_movies = df_credits[df_credits['id'].isin(good_movies['id'].tolist())]
     count_movies_for_actor = actors_good_movies['name'].value_counts(sort=True)
 
-    print('Best actor: \n', count_movies_for_actor[:10])
+    print('Best actors: \n', count_movies_for_actor[:10])
 
 
 def run_fourth_task(df_titles, df_credits):
